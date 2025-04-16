@@ -125,12 +125,14 @@ def create_app(test_config=None):
     
     @app.route('/user/<path:path>')
     def serve_user_app(path):
-        return send_from_directory('app/static/user/dist', path)
+        dist_dir = os.path.join(app.static_folder, 'user', 'dist')
+        return send_from_directory(dist_dir, path)
 
     @app.route('/user/')
     @app.route('/user')
     def serve_user_index():
-        return send_from_directory('app/static/user/dist', 'index.html')
+        dist_dir = os.path.join(app.static_folder, 'user', 'dist')
+        return send_from_directory(dist_dir, 'index.html')
 
     return app
 

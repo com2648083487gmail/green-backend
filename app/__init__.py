@@ -133,17 +133,17 @@ def create_app(test_config=None):
     def serve_user_index():
         dist_dir = os.path.join(app.static_folder, 'user', 'dist')
         return send_from_directory(dist_dir, 'index.html')
-    
-    @app.route('/admin/<path:path>')
-    def serve_admin_app(path):
-        dist_dir = os.path.join(app.static_folder, 'admin', 'dist')
-        return send_from_directory(dist_dir, path)
 
     @app.route('/admin/')
     @app.route('/admin')
     def serve_admin_index():
         dist_dir = os.path.join(app.static_folder, 'admin', 'dist')
         return send_from_directory(dist_dir, 'index.html')
+
+    @app.route('/admin/<path:path>')
+    def serve_admin_static(path):
+        dist_dir = os.path.join(app.static_folder, 'admin', 'dist')
+        return send_from_directory(dist_dir, path)
 
 
     return app

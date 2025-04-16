@@ -124,3 +124,12 @@ def create_app(test_config=None):
         return response
 
     return app
+
+    @app.route('/user/<path:path>')
+    def serve_user_app(path):
+        return send_from_directory('app/static/user/dist', path)
+
+    @app.route('/user/')
+    @app.route('/user')
+    def serve_user_index():
+        return send_from_directory('app/static/user/dist', 'index.html')

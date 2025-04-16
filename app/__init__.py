@@ -123,28 +123,41 @@ def create_app(test_config=None):
         response = send_from_directory(app.instance_path, filename)
         return response
     
-    @app.route('/user/<path:path>')
-    def serve_user_app(path):
-        dist_dir = os.path.join(app.static_folder, 'user', 'dist')
-        return send_from_directory(dist_dir, path)
-
-    @app.route('/user/')
-    @app.route('/user')
-    def serve_user_index():
-        dist_dir = os.path.join(app.static_folder, 'user', 'dist')
-        return send_from_directory(dist_dir, 'index.html')
-
+    # 管理端页面主入口
     @app.route('/admin/')
     @app.route('/admin')
     def serve_admin_index():
         dist_dir = os.path.join(app.static_folder, 'admin', 'dist')
         return send_from_directory(dist_dir, 'index.html')
 
+    # 管理端静态资源和 SPA 路由 fallback
     @app.route('/admin/<path:path>')
-    def serve_admin_static(path):
+    def serve_admin_static_or_fallback(path):
         dist_dir = os.path.join(app.static_folder, 'admin', 'dist')
-        return send_from_directory(dist_dir, path)
+        file_path = os.path.join(dist_dir, path)
 
+        # 如果访问的是已存在的静态文件（如 js/css），正常返回
+        if os.path.exists(file_path):
+            return send_from_directory(dist_dir, path)
+        else:
+            # 否则返回 index.html，由前端路由接管
+            return send_from_directory(dist_dir, 'index.html')
+        
+    @app.route('/user/')
+    @app.route('/user')
+    def serve_user_index():
+        dist_dir = os.path.join(app.static_folder, 'user', 'dist')
+        return send_from_directory(dist_dir, 'index.html')
+
+    @app.route('/user/<path:path>')
+    def serve_user_static_or_fallback(path):
+        dist_dir = os.path.join(app.static_folder, 'user', 'dist')
+        file_path = os.path.join(dist_dir, path)
+
+        if os.path.exists(file_path):
+            return send_from_directory(dist_dir, path)
+        else:
+            return send_from_directory(dist_dir, 'index.html')
 
     return app
 

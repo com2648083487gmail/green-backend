@@ -122,9 +122,7 @@ def create_app(test_config=None):
     def instance_file(filename):
         response = send_from_directory(app.instance_path, filename)
         return response
-
-    return app
-
+    
     @app.route('/user/<path:path>')
     def serve_user_app(path):
         return send_from_directory('app/static/user/dist', path)
@@ -133,3 +131,6 @@ def create_app(test_config=None):
     @app.route('/user')
     def serve_user_index():
         return send_from_directory('app/static/user/dist', 'index.html')
+
+    return app
+

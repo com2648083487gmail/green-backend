@@ -3,7 +3,6 @@
 __pycache__/
 instance/
 venv/
-*.sqlite3
 
 # ✅ 保留构建好的静态资源
 !app/static/admin/dist/

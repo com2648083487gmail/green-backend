@@ -145,5 +145,6 @@ def create_app(test_config=None):
         dist_dir = os.path.join(app.static_folder, 'admin', 'dist')
         return send_from_directory(dist_dir, 'index.html')
 
+
     return app
 

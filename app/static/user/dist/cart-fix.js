@@ -29,7 +29,7 @@
     cart.forEach(item => {
       // 检查image_url是否为空、undefined、null或字符串"null"/"undefined"
       if (!item.image_url || item.image_url === 'null' || item.image_url === 'undefined') {
-        item.image_url = '/img/default-product.png';
+        item.image_url = require('@/assets/default-product.png');
         isFixed = true;
         console.log(`已修复商品 "${item.name}" 的图片URL`);
       }

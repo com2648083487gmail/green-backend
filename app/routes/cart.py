@@ -25,13 +25,17 @@ def get_cart_items():
     for item in cart_items:
         product = Product.query.get(item.product_id)
         image = product.images[0].url if product.images else ''
+        # 防止重复拼接 localhost
+        if image and not image.startswith('http'):
+            image = f"https://web-production-85aa.up.railway.app{image}"
+
         enriched_items.append({
             'id': item.id,
             'product_id': item.product_id,
             'quantity': item.quantity,
             'name': product.name,
             'price': product.price,
-            'image': f"http://localhost:8000{image}" if image else ''
+            'image': image
         })
 
     return jsonify({'code': 200, 'msg': '成功', 'data': enriched_items})

@@ -32,7 +32,7 @@ def get_products():
         product_dict = product.to_dict()
         # 确保图片URL是完整的路径
         if product_dict['images']:
-            product_dict['images'] = [f"http://localhost:8000{url}" if url.startswith('/') else url for url in product_dict['images']]
+            product_dict['images'] = [f"https://web-production-85aa.up.railway.app{url}" if url.startswith('/') else url for url in product_dict['images']]
         items.append(product_dict)
     
     return jsonify({
@@ -67,8 +67,8 @@ def get_products_list():
     products_list = []
     for item in pagination.items:
         # 处理图片URL
-        images = [f"http://localhost:8000{img.url}" if img.url.startswith('/') else img.url for img in item.images]
-        default_image = "http://localhost:8000/static/images/product/default.jpg"
+        images = [f"https://web-production-85aa.up.railway.app{img.url}" if img.url.startswith('/') else img.url for img in item.images]
+        default_image = "https://web-production-85aa.up.railway.app/static/images/product/default.jpg"
         
         product_data = {
             'product_id': item.id,
@@ -123,7 +123,7 @@ def get_categories():
         category = {
             'category_id': cat_name,
             'category_name': cat_name,
-            'image': f"http://localhost:8000{image_path}"
+            'image': f"https://web-production-85aa.up.railway.app{image_path}"
         }
         categories.append(category)
     
@@ -154,8 +154,8 @@ def get_product_detail():
         return jsonify({'code': 404, 'msg': '商品不存在'}), 404
     
     # 处理图片URL
-    images = [f"http://localhost:8000{img.url}" if img.url.startswith('/') else img.url for img in product.images]
-    default_image = "http://localhost:8000/static/images/product/default.jpg"
+    images = [f"https://web-production-85aa.up.railway.app{img.url}" if img.url.startswith('/') else img.url for img in product.images]
+    default_image = "https://web-production-85aa.up.railway.app/static/images/product/default.jpg"
     
     # 返回符合API文档的响应格式
     return jsonify({

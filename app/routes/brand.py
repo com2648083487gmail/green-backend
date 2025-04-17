@@ -10,7 +10,7 @@ def get_brand_info():
     # 模拟品牌数据，实际应该从数据库获取
     brand_info = {
         'title': '绿野鲜踪电商交易平台',
-        'banner': 'http://localhost:8000/static/images/brand/brand_workshop.jpg',
+        'banner': 'https://web-production-85aa.up.railway.app/static/images/brand/brand_workshop.jpg',
         'content': """
         <p>绿野鲜踪电商平台的核心价值主张是"为消费者提供新鲜、安全、可溯源的绿色农产品，推动健康生活方式，助力乡村振兴"。</p>
         
@@ -27,29 +27,29 @@ def get_brand_info():
         <p><strong>产地溯源与品质保障：</strong>为消费者展示每一件农产品的产地信息、种植过程、合作农户档案等，增强透明度与信任感。</p>
         """,
         'images': [
-            'http://localhost:8000/static/images/brand/brand_logo.jpg',
-            'http://localhost:8000/static/images/brand/brand_workshop.jpg',
-            'http://localhost:8000/static/images/brand/brand_facility.jpg'
+            'https://web-production-85aa.up.railway.app/static/images/brand/brand_logo.jpg',
+            'https://web-production-85aa.up.railway.app/static/images/brand/brand_workshop.jpg',
+            'https://web-production-85aa.up.railway.app/static/images/brand/brand_facility.jpg'
         ],
         'advantages': [
             {
                 'title': '绿色健康食材',
-                'icon': 'http://localhost:8000/static/images/icons/icon_leaf.png',
+                'icon': 'https://web-production-85aa.up.railway.app/static/images/icons/icon_leaf.png',
                 'desc': '提供无农残、可追溯的农产品，确保消费者吃得健康、用得安心'
             },
             {
                 'title': '便捷购物体验',
-                'icon': 'http://localhost:8000/static/images/icons/icon_natural.png',
+                'icon': 'https://web-production-85aa.up.railway.app/static/images/icons/icon_natural.png',
                 'desc': '支持在线下单与配送到家，轻松获取每日所需新鲜农产品'
             },
             {
                 'title': '个性化菜篮搭配',
-                'icon': 'http://localhost:8000/static/images/icons/icon_recycle.png',
+                'icon': 'https://web-production-85aa.up.railway.app/static/images/icons/icon_recycle.png',
                 'desc': '根据家庭成员结构与饮食偏好，提供智能化推荐搭配'
             },
             {
                 'title': '科普内容赋能',
-                'icon': 'http://localhost:8000/static/images/icons/icon_global.png',
+                'icon': 'https://web-production-85aa.up.railway.app/static/images/icons/icon_global.png',
                 'desc': '通过食材小知识与农业科普内容，引导健康消费习惯'
             }
         ],

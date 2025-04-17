@@ -222,7 +222,7 @@ def get_orders_list():
                 product_image = ""
                 if product and product.images and product.images[0]:
                     image_url = product.images[0].url
-                    product_image = f"http://localhost:8000{image_url}" if image_url.startswith('/') else image_url
+                    product_image = f"https://web-production-85aa.up.railway.app{image_url}" if image_url.startswith('/') else image_url
             except Exception as e:
                 print(f"获取商品信息失败: {str(e)}")
                 product_name = "商品信息获取失败"
@@ -437,7 +437,7 @@ def get_order_detail_api():
             product_image = ""
             if product and product.images and product.images[0]:
                 image_url = product.images[0].url
-                product_image = f"http://localhost:8000{image_url}" if image_url.startswith('/') else image_url
+                product_image = f"https://web-production-85aa.up.railway.app{image_url}" if image_url.startswith('/') else image_url
         except Exception as e:
             print(f"获取商品信息失败: {str(e)}")
             product_name = "商品信息获取失败"

@@ -27,7 +27,7 @@ def get_stats():
                 Order.status != 'canceled'  # 排除已取消的订单
             ).all()
             
-            today_income = round(sum(order.total_amount for order in today_orders if order.total_amount is not None), 2)
+            today_income = sum(order.total_amount for order in today_orders if order.total_amount is not None)
         except Exception as e:
             print(f"查询今日收入失败: {str(e)}")
             today_income = 0
@@ -51,7 +51,7 @@ def get_stats():
             'msg': '成功',
             'data': {
                 'pendingOrders': pending_orders,
-                'todayIncome': f"{float(today_income):.2f}",
+                'todayIncome': float(today_income),
                 'totalProducts': total_products,
                 'totalUsers': total_users
             }

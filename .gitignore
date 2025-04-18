@@ -2,7 +2,8 @@
 venv/
 __pycache__/
 *.pyc
-
+*.sqlite3
+instance/
 .DS_Store
 
 # ✅ 保留构建好的静态资源

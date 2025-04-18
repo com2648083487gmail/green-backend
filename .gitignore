@@ -1,7 +1,7 @@
 # 忽略其他 pyc 文件等
 *.pyc
 __pycache__/
-
+instance/
 venv/
 
 # ✅ 保留构建好的静态资源

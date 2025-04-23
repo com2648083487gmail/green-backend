@@ -48,7 +48,7 @@ def get_products_list():
     # 获取查询参数
     page = request.args.get('page', 1, type=int)
     size = request.args.get('size', 10, type=int)
-    category_id = request.args.get('category_id')
+    category_id = request.args.get('category')
     keyword = request.args.get('keyword')
     
     # 构建查询
